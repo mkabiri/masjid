@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="payment">
+            <h2><span jhiTranslate="masjidApp.payment.detail.title">Payment</span> {{ payment.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="masjidApp.payment.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ payment.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.payment.paymentDate">Payment Date</span></dt>
+                <dd>
+                    <span>{{ payment.paymentDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.payment.description">Description</span></dt>
+                <dd>
+                    <span>{{ payment.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.payment.paymentMethod">Payment Method</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'masjidApp.PaymentMethod.' + payment.paymentMethod }}">{{ payment.paymentMethod }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.payment.contributor">Contributor</span></dt>
+                <dd>
+                    <div *ngIf="payment.contributorId">
+                        <a [routerLink]="['/contributor', payment.contributorId, 'view']">{{ payment.contributorId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.payment.period">Period</span></dt>
+                <dd>
+                    <div *ngIf="payment.periodId">
+                        <a [routerLink]="['/period', payment.periodId, 'view']">{{ payment.periodYear }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment', payment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

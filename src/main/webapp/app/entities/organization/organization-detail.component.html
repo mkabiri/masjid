@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="organization">
+            <h2><span jhiTranslate="masjidApp.organization.detail.title">Organization</span> {{ organization.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="masjidApp.organization.name">Name</span></dt>
+                <dd>
+                    <span>{{ organization.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.organization.address">Address</span></dt>
+                <dd>
+                    <span>{{ organization.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.organization.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{ organization.postalCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.organization.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ organization.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.organization.city">City</span></dt>
+                <dd>
+                    <span>{{ organization.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.organization.bankName">Bank Name</span></dt>
+                <dd>
+                    <span>{{ organization.bankName }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.organization.bankAccount">Bank Account</span></dt>
+                <dd>
+                    <span>{{ organization.bankAccount }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.organization.logo">Logo</span></dt>
+                <dd>
+                    <div *ngIf="organization.logo">
+                        <a (click)="openFile(organization.logoContentType!, organization.logo)">
+                            <img [src]="'data:' + organization.logoContentType + ';base64,' + organization.logo" style="max-width: 100%;" alt="organization image"/>
+                        </a>
+                        {{ organization.logoContentType }}, {{ byteSize(organization.logo) }}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/organization', organization.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

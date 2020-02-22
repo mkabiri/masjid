@@ -1,0 +1,75 @@
+entity Contributor {
+	registrationNumber Integer required,
+    fullNameArabic String,
+    fullNameLatin String required,
+    email String,
+	phoneNumber String,
+    contributionStatus ContributieStatus,
+    periodicContribution Boolean,
+    contributionMonth Integer
+}
+
+entity Payment {
+	amount Long required,
+    paymentDate Instant,
+    description String,
+    paymentMethod PaymentMethod
+}
+
+entity Period {
+	year String required minlength(4) maxlength(4),
+	startDate Instant,
+	endDate Instant,
+	description String
+}
+
+entity Organization {
+	name String required,
+	address String,
+	postalCode String,
+    phone String,
+	city String,
+    bankName String minlength(3),
+    bankAccount String minlength(10),
+    logo ImageBlob
+}
+
+entity Membership {
+	title String required,
+    description String,
+    contributionAmount Long
+}
+
+enum ContributieStatus {
+    OK, OVERDUE, SUSPENDED
+}
+
+enum PaymentMethod {
+    CASH, INCASSO, OVERSCHRIJVING, CHEQUE
+}
+
+relationship ManyToMany {
+	Contributor{membership(title)} to Membership{contributor}
+}
+
+relationship OneToMany {
+	Period{contributor} to Contributor{period(year)}
+}
+
+relationship ManyToOne {
+	Payment{contributor} to Contributor,
+	Payment{period(year)} to Period
+}
+
+// Set pagination options
+paginate Payment, Period with infinite-scroll
+paginate Contributor with pagination
+
+// Use Data Transfert Objects (DTO)
+ dto Payment with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

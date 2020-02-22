@@ -1,0 +1,31 @@
+{
+  "masjidApp": {
+    "contributor": {
+      "home": {
+        "title": "Contributors",
+        "createLabel": "Create a new Contributor",
+        "createOrEditLabel": "Create or edit a Contributor",
+        "notFound": "No Contributors found"
+      },
+      "created": "A new Contributor is created with identifier {{ param }}",
+      "updated": "A Contributor is updated with identifier {{ param }}",
+      "deleted": "A Contributor is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contributor {{ id }}?"
+      },
+      "detail": {
+        "title": "Contributor"
+      },
+      "registrationNumber": "Registration Number",
+      "fullNameArabic": "Full Name Arabic",
+      "fullNameLatin": "Full Name Latin",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "contributionStatus": "Contribution Status",
+      "periodicContribution": "Periodic Contribution",
+      "contributionMonth": "Contribution Month",
+      "membership": "Membership",
+      "period": "Period"
+    }
+  }
+}

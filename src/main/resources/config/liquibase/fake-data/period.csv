@@ -1,0 +1,11 @@
+id;year;start_date;end_date;description
+1;Hand;2020-02-22T12:38:22;2020-02-22T01:20:45;lime
+2;Unbr;2020-02-22T06:25:59;2020-02-22T05:30:54;Connecticut
+3;stab;2020-02-22T08:29:29;2020-02-22T14:42:16;Borders
+4;Groc;2020-02-22T20:21:54;2020-02-21T20:59:09;programming
+5;gran;2020-02-22T18:03:37;2020-02-22T01:17:29;deliver Organized
+6;ente;2020-02-22T08:52:23;2020-02-22T09:12:06;indexing
+7;driv;2020-02-22T18:28:55;2020-02-22T19:38:21;Chair models
+8;proa;2020-02-21T20:45:40;2020-02-22T02:00:01;Coordinator
+9;Prac;2020-02-22T16:50:40;2020-02-22T18:42:01;mission-critical
+10;Pers;2020-02-22T12:27:59;2020-02-22T05:38:40;Programmable
