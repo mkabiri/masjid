@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-titulo-heading" jhiTranslate="masjidApp.titulo.home.createOrEditLabel">Create or edit a Titulo</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="masjidApp.titulo.registrationNumber" for="field_registrationNumber">Registration Number</label>
+                    <input type="number" class="form-control" name="registrationNumber" id="field_registrationNumber"
+                           formControlName="registrationNumber"/>
+                    <div *ngIf="editForm.get('registrationNumber')!.invalid && (editForm.get('registrationNumber')!.dirty || editForm.get('registrationNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('registrationNumber')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('registrationNumber')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="masjidApp.titulo.fullNameArabic" for="field_fullNameArabic">Full Name Arabic</label>
+                    <input type="text" class="form-control" name="fullNameArabic" id="field_fullNameArabic"
+                           formControlName="fullNameArabic"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="masjidApp.titulo.fullNameLatin" for="field_fullNameLatin">Full Name Latin</label>
+                    <input type="text" class="form-control" name="fullNameLatin" id="field_fullNameLatin"
+                           formControlName="fullNameLatin"/>
+                    <div *ngIf="editForm.get('fullNameLatin')!.invalid && (editForm.get('fullNameLatin')!.dirty || editForm.get('fullNameLatin')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fullNameLatin')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="masjidApp.titulo.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="masjidApp.titulo.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                           formControlName="phoneNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="masjidApp.titulo.estatusTitulo" for="field_estatusTitulo">Estatus Titulo</label>
+                    <select class="form-control" name="estatusTitulo" formControlName="estatusTitulo" id="field_estatusTitulo">
+                        <option value="EXPEDIDO">{{ 'masjidApp.EstatusTitulo.EXPEDIDO' | translate }}</option>
+                        <option value="FIRMADO">{{ 'masjidApp.EstatusTitulo.FIRMADO' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "masjidApp": {
+    "PaymentMethod": {
+      "null": "",
+      "CASH": "CASH",
+      "INCASSO": "INCASSO",
+      "OVERSCHRIJVING": "OVERSCHRIJVING",
+      "CHEQUE": "CHEQUE"
+    }
+  }
+}

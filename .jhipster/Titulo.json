@@ -1,0 +1,47 @@
+{
+    "name": "Titulo",
+    "fields": [
+        {
+            "fieldName": "registrationNumber",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fullNameArabic",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fullNameLatin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estatusTitulo",
+            "fieldType": "EstatusTitulo",
+            "fieldValues": "EXPEDIDO,FIRMADO"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200222233700",
+    "entityTableName": "titulo",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

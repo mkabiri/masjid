@@ -1,0 +1,26 @@
+{
+  "masjidApp": {
+    "period": {
+      "home": {
+        "title": "Periods",
+        "createLabel": "Maak een nieuwe Period",
+        "createOrEditLabel": "Maak of wijzig een Period",
+        "notFound": "No Periods found"
+      },
+      "created": "A new Period is created with identifier {{ param }}",
+      "updated": "A Period is updated with identifier {{ param }}",
+      "deleted": "A Period is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Period {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Period"
+      },
+      "year": "Year",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "description": "Description",
+      "contributor": "Contributor"
+    }
+  }
+}

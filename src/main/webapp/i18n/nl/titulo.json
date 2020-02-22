@@ -1,0 +1,27 @@
+{
+  "masjidApp": {
+    "titulo": {
+      "home": {
+        "title": "Titulos",
+        "createLabel": "Maak een nieuwe Titulo",
+        "createOrEditLabel": "Maak of wijzig een Titulo",
+        "notFound": "No Titulos found"
+      },
+      "created": "A new Titulo is created with identifier {{ param }}",
+      "updated": "A Titulo is updated with identifier {{ param }}",
+      "deleted": "A Titulo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Titulo {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Titulo"
+      },
+      "registrationNumber": "Registration Number",
+      "fullNameArabic": "Full Name Arabic",
+      "fullNameLatin": "Full Name Latin",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "estatusTitulo": "Estatus Titulo"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+    "name": "Contributor",
+    "fields": [
+        {
+            "fieldName": "registrationNumber",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fullNameArabic",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fullNameLatin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contributionStatus",
+            "fieldType": "ContributieStatus",
+            "fieldValues": "OK,OVERDUE,SUSPENDED"
+        },
+        {
+            "fieldName": "periodicContribution",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "contributionMonth",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "membership",
+            "otherEntityRelationshipName": "contributor",
+            "relationshipName": "membership",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "period",
+            "otherEntityRelationshipName": "contributor",
+            "relationshipName": "period",
+            "otherEntityField": "year"
+        }
+    ],
+    "changelogDate": "20200222233300",
+    "entityTableName": "contributor",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

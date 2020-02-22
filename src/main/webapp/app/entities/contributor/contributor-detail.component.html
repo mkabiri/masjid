@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contributor">
+            <h2><span jhiTranslate="masjidApp.contributor.detail.title">Contributor</span> {{ contributor.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="masjidApp.contributor.registrationNumber">Registration Number</span></dt>
+                <dd>
+                    <span>{{ contributor.registrationNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.fullNameArabic">Full Name Arabic</span></dt>
+                <dd>
+                    <span>{{ contributor.fullNameArabic }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.fullNameLatin">Full Name Latin</span></dt>
+                <dd>
+                    <span>{{ contributor.fullNameLatin }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.email">Email</span></dt>
+                <dd>
+                    <span>{{ contributor.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{ contributor.phoneNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.contributionStatus">Contribution Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'masjidApp.ContributieStatus.' + contributor.contributionStatus }}">{{ contributor.contributionStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.periodicContribution">Periodic Contribution</span></dt>
+                <dd>
+                    <span>{{ contributor.periodicContribution }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.contributionMonth">Contribution Month</span></dt>
+                <dd>
+                    <span>{{ contributor.contributionMonth }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.membership">Membership</span></dt>
+                <dd>
+                    <span *ngFor="let membership of contributor.memberships; let last = last">
+                        <a [routerLink]="['/membership', membership?.id, 'view']">{{ membership.title }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.contributor.period">Period</span></dt>
+                <dd>
+                    <div *ngIf="contributor.period">
+                        <a [routerLink]="['/period', contributor.period?.id, 'view']">{{ contributor.period?.year }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contributor', contributor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

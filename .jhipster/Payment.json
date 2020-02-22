@@ -1,0 +1,51 @@
+{
+    "name": "Payment",
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "paymentDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentMethod",
+            "fieldType": "PaymentMethod",
+            "fieldValues": "CASH,INCASSO,OVERSCHRIJVING,CHEQUE"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "contributor",
+            "otherEntityRelationshipName": "payment",
+            "relationshipName": "contributor",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "period",
+            "otherEntityRelationshipName": "payment",
+            "relationshipName": "period",
+            "otherEntityField": "year"
+        }
+    ],
+    "changelogDate": "20200222233400",
+    "entityTableName": "payment",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

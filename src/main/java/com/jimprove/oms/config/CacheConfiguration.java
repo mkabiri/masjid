@@ -42,6 +42,15 @@ public class CacheConfiguration {
             createCache(cm, com.jimprove.oms.domain.User.class.getName());
             createCache(cm, com.jimprove.oms.domain.Authority.class.getName());
             createCache(cm, com.jimprove.oms.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.jimprove.oms.domain.Contributor.class.getName());
+            createCache(cm, com.jimprove.oms.domain.Contributor.class.getName() + ".memberships");
+            createCache(cm, com.jimprove.oms.domain.Payment.class.getName());
+            createCache(cm, com.jimprove.oms.domain.Period.class.getName());
+            createCache(cm, com.jimprove.oms.domain.Period.class.getName() + ".contributors");
+            createCache(cm, com.jimprove.oms.domain.Organization.class.getName());
+            createCache(cm, com.jimprove.oms.domain.Titulo.class.getName());
+            createCache(cm, com.jimprove.oms.domain.Membership.class.getName());
+            createCache(cm, com.jimprove.oms.domain.Membership.class.getName() + ".contributors");
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,25 @@
+{
+  "masjidApp": {
+    "membership": {
+      "home": {
+        "title": "Memberships",
+        "createLabel": "Maak een nieuwe Membership",
+        "createOrEditLabel": "Maak of wijzig een Membership",
+        "notFound": "No Memberships found"
+      },
+      "created": "A new Membership is created with identifier {{ param }}",
+      "updated": "A Membership is updated with identifier {{ param }}",
+      "deleted": "A Membership is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Membership {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Membership"
+      },
+      "title": "Title",
+      "description": "Description",
+      "contributionAmount": "Contribution Amount",
+      "contributor": "Contributor"
+    }
+  }
+}

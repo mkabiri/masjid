@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="period">
+            <h2><span jhiTranslate="masjidApp.period.detail.title">Period</span> {{ period.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="masjidApp.period.year">Year</span></dt>
+                <dd>
+                    <span>{{ period.year }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.period.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ period.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.period.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ period.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="masjidApp.period.description">Description</span></dt>
+                <dd>
+                    <span>{{ period.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/period', period.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

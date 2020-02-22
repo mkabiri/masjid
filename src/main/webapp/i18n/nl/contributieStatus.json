@@ -1,0 +1,10 @@
+{
+  "masjidApp": {
+    "ContributieStatus": {
+      "null": "",
+      "OK": "OK",
+      "OVERDUE": "OVERDUE",
+      "SUSPENDED": "SUSPENDED"
+    }
+  }
+}
