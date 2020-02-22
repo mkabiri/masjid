@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.jimprove.oms",
+      "nativeLanguage": "nl"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "monolith",
+    "baseName": "masjid",
+    "packageName": "com.jimprove.oms",
+    "packageFolder": "com/jimprove/oms",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzFlNmUwZTdjYzJhMDhkNDgwYWMwOGUwNzQ5OTVjZjI1ZjMzYzRmMjFjODc3MzQ2Zjc3ZThhY2E4YmNmYzYzOTMzYjM5MDViNzljZWQxZWVjY2NjNmQzZjU2ZWQ4MmE1ZjhlNzdhNzQ3MjU5YTgzYTdiMzhhMmJhNDg0MDA5Y2Q=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "solar",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1582403535006,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "nl",
+    "languages": ["nl", "ar-ly"],
+    "blueprints": []
+  }
+}
