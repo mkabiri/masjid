@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
@@ -24,6 +24,10 @@ export class TituloComponent implements OnInit, OnDestroy {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  estatusFilter: any;
+  paginateTitulos: any;
+  registrationNumber = 1;
+  fullNameLatin = 'kabiri';
 
   constructor(
     protected tituloService: TituloService,
@@ -36,7 +40,7 @@ export class TituloComponent implements OnInit, OnDestroy {
   loadPage(page?: number): void {
     const pageToLoad: number = page || this.page;
 
-    this.tituloService
+    /*this.tituloService
       .query({
         page: pageToLoad - 1,
         size: this.itemsPerPage,
@@ -45,6 +49,19 @@ export class TituloComponent implements OnInit, OnDestroy {
       .subscribe(
         (res: HttpResponse<ITitulo[]>) => this.onSuccess(res.body, res.headers, pageToLoad),
         () => this.onError()
+      );*/
+
+    this.tituloService
+      .query({
+        page: this.page - 1,
+        size: this.itemsPerPage,
+        sort: this.sort(),
+        //...(this.estatusFilter && { 'estatus.equals': this.estatusFilter }),
+        ...(this.registrationNumber && { 'fullNameLatin.contains': this.fullNameLatin })
+      })
+      .subscribe(
+        (res: HttpResponse<ITitulo[]>) => this.paginateTitulos(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError() //res.message)
       );
   }
 

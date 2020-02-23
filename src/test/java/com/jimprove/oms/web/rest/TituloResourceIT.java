@@ -3,6 +3,7 @@ package com.jimprove.oms.web.rest;
 import com.jimprove.oms.MasjidApp;
 import com.jimprove.oms.domain.Titulo;
 import com.jimprove.oms.repository.TituloRepository;
+import com.jimprove.oms.service.TitulosQueryService;
 import com.jimprove.oms.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -73,11 +74,12 @@ public class TituloResourceIT {
     private MockMvc restTituloMockMvc;
 
     private Titulo titulo;
+    private TitulosQueryService titulosQueryService;
 
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final TituloResource tituloResource = new TituloResource(tituloRepository);
+        final TituloResource tituloResource = new TituloResource(tituloRepository, titulosQueryService);
         this.restTituloMockMvc = MockMvcBuilders.standaloneSetup(tituloResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

@@ -2,6 +2,8 @@ package com.jimprove.oms.web.rest;
 
 import com.jimprove.oms.domain.Titulo;
 import com.jimprove.oms.repository.TituloRepository;
+import com.jimprove.oms.service.TitulosQueryService;
+import com.jimprove.oms.service.dto.TituloCriteria;
 import com.jimprove.oms.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -14,10 +16,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -42,8 +46,11 @@ public class TituloResource {
 
     private final TituloRepository tituloRepository;
 
-    public TituloResource(TituloRepository tituloRepository) {
+    private final TitulosQueryService titulosQueryService;
+
+    public TituloResource(TituloRepository tituloRepository, TitulosQueryService titulosQueryService) {
         this.tituloRepository = tituloRepository;
+        this.titulosQueryService = titulosQueryService;
     }
 
     /**
@@ -92,11 +99,21 @@ public class TituloResource {
      * @param pageable the pagination information.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of titulos in body.
      */
-    @GetMapping("/titulos")
+    @GetMapping("/titulos/old")
     public ResponseEntity<List<Titulo>> getAllTitulos(Pageable pageable) {
         log.debug("REST request to get a page of Titulos");
         Page<Titulo> page = tituloRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/titulos")
+    public ResponseEntity<List<Titulo>> getAll(TituloCriteria criteria, Pageable pageable,
+                                               @RequestParam MultiValueMap<String, String> queryParams,
+                                               UriComponentsBuilder uriBuilder) {
+        log.debug("REST request to get a page of Titulos by criteria: {}", criteria);
+        Page<Titulo> page = titulosQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
